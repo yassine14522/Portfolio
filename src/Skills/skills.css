@@ -1,0 +1,61 @@
+.skills-container {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 70px auto;
+  text-align: center;
+}
+
+
+.skills-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 90px;
+  position: relative; /* Needed for the pseudo-element positioning */
+}
+
+.skills-title::after {
+  content: '';
+  display: block;
+  width: 50%; /* Adjust the width of the border */
+  height: 2px; /* Thickness of the border */
+  background-color: #f39c12; /* Color of the border */
+  margin: 10px auto 0; /* Space between text and border */
+  position: relative;
+}
+
+
+.technical-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.skill {
+  text-align: center;
+  width: 150px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-25%); /* Move item up by 10% */
+  color: #333; /* Reset to normal color */
+}
+
+.skill-icon {
+  font-size: 4rem; /* Increase icon size */
+  margin-bottom: 10px;
+  color: #f39c12;
+  transition: color 0.3s ease;
+}
+
+.skill:hover .skill-icon {
+  color: #f39c12; /* Reset to the official color on hover */
+}
+
+.skill p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}

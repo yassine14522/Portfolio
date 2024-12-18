@@ -1,0 +1,102 @@
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.contact-left {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.contact-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    margin-bottom: 30px;
+
+}
+
+.contact-description {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: grey;
+}
+
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    
+}
+
+.contact-icon span {
+    margin-left: 10px;
+    
+}
+
+.contact-right {
+    flex: 1;
+    padding-left: 20px;
+    border-left: 2px solid #ccc;
+    
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background: linear-gradient(90deg, black 50%, orange 50%);
+    background-size: 200%;
+    background-position: right;
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 200px;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    animation: fadeIn 3s ease forwards;
+    
+
+}
+
+.submit-button:hover {
+    background-position: left;
+    transform: scale(1.05);
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
