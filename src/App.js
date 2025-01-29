@@ -20,9 +20,6 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={`app-container ${theme}`}>
         <Header />
-        <button className="theme-toggle-btn" onClick={toggleTheme}>
-          {theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-        </button>
         <Home />
         <About />
         <Skills />

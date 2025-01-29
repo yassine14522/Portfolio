@@ -1,42 +1,10 @@
-/* Define light and dark theme colors using CSS custom properties */
-:root {
-    --background-color-light: transparent;
-    --text-color-light: #000;
-    --link-color-light: #000;
-    --link-hover-color-light: #f39c12;
-    --underline-color-light: #f39c12;
-
-    --background-color-dark: #333;
-    --text-color-dark: #fff;
-    --link-color-dark: #fff;
-    --link-hover-color-dark: #f39c12;
-    --underline-color-dark: #f39c12;
-}
-
-/* Apply light theme styles by default */
-body {
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-    transition: all 0.3s ease; /* Smooth transition between themes */
-}
-
-/* Dark mode styles */
-body[data-theme="dark"] {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-}
-
-/* Header Styling */
 header {
-    background-color: var(--background-color-light);
+    background-color: transparent;
     padding: 40px 0;
-    transition: background-color 0.3s ease; /* Smooth transition for header background */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for header background */
 }
 
-/* Dark Mode Header */
-body[data-theme="dark"] header {
-    background-color: var(--background-color-dark);
-}
 
 /* Navigation Bar */
 nav {
@@ -52,7 +20,8 @@ nav {
     width: 300px;
     height: auto;
     margin-top: 5px;
-    margin-left: -190px; /* Adjust logo position as necessary */
+    margin-left: -190px;
+    /* Adjust logo position as necessary */
 }
 
 /* Navigation List */
@@ -73,13 +42,15 @@ nav {
 
 /* Navigation Links */
 .nav-item a {
-    color: var(--link-color-light);
+    color: #000;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Add smooth color transition */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Add smooth color transition */
     margin-right: 30px;
-    position: relative; /* For the pseudo-element positioning */
+    position: relative;
+    /* For the pseudo-element positioning */
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInUp 1s forwards;
@@ -92,6 +63,7 @@ nav {
         opacity: 0;
         transform: translateY(10px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -106,7 +78,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--underline-color-light);
+    background-color: #f39c12;
     transition: width 0.3s ease;
 }
 
@@ -118,7 +90,7 @@ nav {
 
 /* Hover State for Navigation Links */
 .nav-item a:hover {
-    color: var(--link-hover-color-light);
+    color: #f39c12;
 }
 
 /* Focus State for Accessibility */
@@ -128,32 +100,25 @@ nav {
 
 /* Active State for Navigation Links */
 .nav-item a.active {
-    color: var(--link-hover-color-light);
+    color: #f39c12;
 }
 
-/* Dark Mode Navigation Links */
-body[data-theme="dark"] .nav-item a {
-    color: var(--link-color-dark);
-}
-
-body[data-theme="dark"] .nav-item a::after {
-    background-color: var(--underline-color-dark);
-}
-
-body[data-theme="dark"] .nav-item a:hover {
-    color: var(--link-hover-color-dark);
-}
 
 /* Dark Mode Toggle Button */
 .nav-item button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: var(--link-color-light); /* Default color for light mode */
-    background-color: transparent; /* No background color */
-    border: none; /* Remove the border */
+    color: #000;
+    /* Default color for light mode */
+    background-color: transparent;
+    /* No background color */
+    border: none;
+    /* Remove the border */
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    position: relative; /* For the pseudo-element positioning */
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition */
+    position: relative;
+    /* For the pseudo-element positioning */
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInUp 1s forwards;
@@ -161,19 +126,11 @@ body[data-theme="dark"] .nav-item a:hover {
     font-weight: bold;
 }
 
-/* Dark Mode Button Appearance when the theme is dark */
-body[data-theme="dark"] .nav-item button {
-    color: var(--link-color-dark); /* Text color for dark mode */
-}
 
 /* Hover Effect for the Button */
 .nav-item button:hover {
-    color: var(--link-hover-color-light); /* Text color on hover */
-}
-
-/* Dark Mode Hover Effect */
-body[data-theme="dark"] .nav-item button:hover {
-    color: var(--link-hover-color-dark); /* Text color on hover for dark mode */
+    color: #f39c12;
+    /* Text color on hover */
 }
 
 /* Underline animation for buttons */
@@ -184,18 +141,13 @@ body[data-theme="dark"] .nav-item button:hover {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--underline-color-light);
+    background-color: #f39c12;
     transition: width 0.3s ease;
 }
 
 /* Hover state for underline animation */
 .nav-item button:hover::after {
     width: 100%;
-}
-
-/* Dark Mode Underline for Buttons */
-body[data-theme="dark"] .nav-item button::after {
-    background-color: var(--underline-color-dark);
 }
 
 /* Mobile-Friendly Layout (for screens ≤ 768px) */
@@ -215,6 +167,7 @@ body[data-theme="dark"] .nav-item button::after {
     }
 
     .logo {
-        margin-left: 0; /* Adjust logo position for smaller screens */
+        margin-left: 0;
+        /* Adjust logo position for smaller screens */
     }
 }
