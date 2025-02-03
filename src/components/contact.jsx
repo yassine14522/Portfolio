@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios"; // Import Axios for POST requests
 import { FaEnvelope, FaPhone, FaMapMarkerAlt,FaLinkedin,FaGithub } from "react-icons/fa"; // Example icons
-import "./contact.css"; // Import your CSS styles for the contact form
-import { ThemeContext } from "../App";
+import "../style/components/contact.css"; // Import your CSS styles for the contact form
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -20,7 +19,6 @@ export default function Contact() {
             [name]: value,
         });
     };
-    const { theme } = useContext(ThemeContext);
 
 
     const handleSubmit = (e) => {
@@ -45,7 +43,7 @@ export default function Contact() {
     };
 
     return (
-        <div id="contact" className={`contact-container ${theme}`}>
+        <div id="contact" className="contact-container">
             <div className="contact-left">
                 <h1 className="contact-title">Contact <span style={{color:"orange"}}>Me</span></h1>
                 <p className="contact-description">

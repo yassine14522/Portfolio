@@ -13,15 +13,13 @@ import {
   FaWordpress,
 } from "react-icons/fa";
 import { SiMysql, SiMongodb, SiTailwindcss, SiExpress } from "react-icons/si";
-import "./skills.css";
-import { ThemeContext } from "../App";
+import "../style/components/skills.css";
 
 
 export default function Skills() {
-  const { theme } = useContext(ThemeContext);
 
   return (
-    <div id="skills" className={`skills-container ${theme}`}>
+    <div id="skills" className="skills-container">
       <h2 className="skills-title">S k i l l s<span></span></h2>
       <div className="technical-skills">
         {/* First Row */}

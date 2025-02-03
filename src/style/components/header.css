@@ -1,0 +1,264 @@
+/* Header Styles */
+.header-container {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    position: relative;
+  }
+  
+  .imageLogo {
+    transition: opacity 0.3s ease;
+    height: auto;
+    width: 130px;
+  }
+  
+  /* Navigation Styles */
+  .navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-right: 120px;
+  }
+  
+  .nav-list {
+    display: flex;
+    gap: 100px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #77a1aa;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #77a1aa;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .numPhone {
+    display: none;
+  }
+  
+  .imageLogoMobill {
+    display: none;
+  }
+  .header-links{
+    display: none;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .header-container {
+      background-color: transparent;
+      padding: 15px 20px 20px;
+      /* Adjust padding for mobile */
+    }
+  
+    /* Logo */
+    .imageLogo {
+      width: 60px;
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      left: 20px;
+      top: 27px;
+      /* Adjusted to fit well in mobile view */
+      transition: transform 0.3s ease;
+      /* Add smooth animation for logo on hover */
+    }
+  
+    .imageLogo:hover {
+      transform: scale(1.1);
+      /* Slightly enlarge logo on hover for effect */
+    }
+  
+    /* Hamburger Icon */
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      z-index: 1100;
+      /* Make sure it is above other elements */
+    }
+  
+    .hamburger .bar {
+      width: 30px;
+      height: 3px;
+      margin: 6px 0;
+      background-color: #77a1aa;
+      transition: 0.3s;
+      border-radius: 5px;
+      /* Rounded bars for a modern look */
+    }
+  
+    .hamburger.active .bar:nth-child(1) {
+      transform: rotate(-45deg);
+      position: relative;
+      top: 7px;
+    }
+  
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+      transform: rotate(45deg);
+      position: relative;
+      top: -7px;
+    }
+  
+    /* Mobile Menu */
+    .navigation {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 200px;
+      /* Increased width for better visibility */
+      background-color: black;
+      background: linear-gradient(to bottom, rgba(96, 146, 152, 0.8), rgba(40, 55, 56, 1));
+      /* Gradient overlay */
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+      /* Added shadow for depth */
+      padding-top: 50px;
+      color: white;
+    }
+  
+    .navigation.nav-open {
+      left: 0;
+    }
+  
+    /* Nav List */
+    .nav-list {
+      flex-direction: column;
+      gap: 20px;
+      padding: 0;
+      list-style: none;
+    }
+  
+    /* Nav Link */
+    .nav-link {
+      font-size: 18px;
+      /* Increased font size for readability */
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      position: relative;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+      font-weight: 500;
+    }
+  
+    .nav-link:hover {
+      color: #2f3c3f;
+      /* Bright accent color */
+      padding-left: 10px;
+      /* Add left padding on hover for a smooth slide effect */
+    }
+  
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #2f3c3f;
+      transition: width 0.3s ease;
+    }
+  
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  
+    /* Make sure the hamburger icon and menu are not too close */
+    .hamburger,
+    .navigation {
+      margin-top: 10px;
+    }
+  
+    /* Phone Number and Social Media Icons */
+    .numPhone,
+    .social-icons {
+      position: absolute;
+      left: 15px;
+      top: 550px;
+      display: block;
+      background-color: #262e30;
+      padding: 15px 25px;
+      border-radius: 20px;
+    }
+  
+    .numPhone {
+      font-size: 14px;
+      color: white;
+    }
+  
+    /* Hide social media icons on desktop */
+    .header-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      list-style: none;
+      position: relative;
+      top: 320px;
+      left: -25px;
+    }
+  
+    .header-link {
+      color: white;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+  
+    .social-icons a:hover {
+      color: #77a1aa;
+    }
+  
+    .imageLogoMobill {
+      border-bottom: aliceblue 2px solid;
+      display: block;
+      width: 100px;
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      left: 42px;
+      top: 480px;
+      transition: transform 0.3s ease;
+    }
+  }

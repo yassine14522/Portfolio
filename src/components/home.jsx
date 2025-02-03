@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./home.css";
-import photoP from '../assets/photo.jpg';
+import "../style/components/home.css";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Home() {
@@ -117,7 +116,7 @@ export default function Home() {
                 </div>
 
                 <div className="hero-image">
-                    <img src={photoP} alt="Profile" className="profile-image" />
+                    <img src="assets/photo.jpg" alt="Profile" className="profile-image" />
                 </div>
 
                 <div className="arrow-container">

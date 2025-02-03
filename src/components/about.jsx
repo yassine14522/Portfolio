@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
-import "./about.css"; // Make sure to create and import the CSS file
-import photoAbout from '../assets/photo.jpg'
+import "../style/components/about.css"; // Make sure to create and import the CSS file
 import { FaLanguage } from 'react-icons/fa';
-import { ThemeContext } from "../App";
 
 
 
@@ -12,13 +10,12 @@ export default function About() {
     const handleTranslate = () => {
         setIsFrench(!isFrench); // Toggle between English and French
     };
-    const { theme } = useContext(ThemeContext);
 
     return (
-        <div id="about" className={`about-container ${theme}`}>
+        <div id="about" className="about-container">
             <section className="about-section">
                 <div className="about-image_container">
-                    <img src={photoAbout} alt="About_Photo" className="about-image" />
+                    <img src="assets/photo.jpg" alt="About_Photo" className="about-image" />
                 </div>
                 <div className="about-text">
                     <h1 className="about-title">About Me</h1>

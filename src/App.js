@@ -1,24 +1,16 @@
-import React, { useState, createContext } from "react";
+import React from "react";
 import "./App.css";
-import Header from "./Header/header";
-import Home from "./Home/home";
-import Contact from "./Contact/contact";
-import About from "./About/about";
-import Skills from "./Skills/Skills";
-import Projects from "./Projects/projects";
-
-export const ThemeContext = createContext();
+import Header from "./components/header";
+import Home from "./components/home";
+import Contact from "./components/contact";
+import About from "./components/about";
+import Skills from "./components/Skills";
+import Projects from "./components/projects";
 
 function App() {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={`app-container ${theme}`}>
+      <div className='app-container'>
         <Header />
         <Home />
         <About />
@@ -26,7 +18,6 @@ function App() {
         <Projects />
         <Contact />
       </div>
-    </ThemeContext.Provider>
   );
 }
 
