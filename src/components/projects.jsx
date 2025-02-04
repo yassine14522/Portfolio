@@ -34,7 +34,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="projects-section">
+    <section id="realisation" className="projects-section">
       <h2 className="projects-title">Featured Projects</h2>
       <div className="projects-container">
         {ProjectsData.slice(0, visibleProjects).map((project) => (

@@ -12,8 +12,10 @@ const socialLinks = [
 const navItems = [
   { path: "/", label: "Home" },
   { path: "#about", label: "About" },
+  { path: "#expertise", label: "Expertise" },
   { path: "#services", label: "Services" },
-  { path: "#portfolio", label: "Realisation" },
+  { path: "#realisation", label: "Realisation" },
+
 ];
 
 const Header = () => {
@@ -59,7 +61,7 @@ const Header = () => {
 
         {/* Mobile Extra Content */}
         <div className="mobile-extra">
-          <div className="numPhone">+212 771473306</div>
+          <div className="numPhone">+212 601710479</div>
           <img src="assets/logoMobill.png" className="imageLogoMobill" alt="OKY Logo" />
           <ul className="header-links">
             {socialLinks.map(({ href, icon, label }, index) => (

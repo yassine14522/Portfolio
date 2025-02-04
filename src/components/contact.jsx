@@ -1,119 +1,80 @@
-import React, { useState, useContext } from "react";
-import axios from "axios"; // Import Axios for POST requests
-import { FaEnvelope, FaPhone, FaMapMarkerAlt,FaLinkedin,FaGithub } from "react-icons/fa"; // Example icons
-import "../style/components/contact.css"; // Import your CSS styles for the contact form
+import React, { useState } from "react";
+import axios from "axios";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
+import "../style/components/contact.css";
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [error, setError] = useState("");
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [status, setStatus] = useState({ success: false, error: "" });
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Define the Formspree endpoint
-        const formEndpoint = "https://formspree.io/f/xldekvpq"; // Replace with your Formspree form endpoint
-
-        // Send form data to Formspree using Axios
-        axios
-            .post(formEndpoint, formData)
-            .then((response) => {
-                console.log(response.data);
-                setIsSubmitted(true); // Indicate that the form was submitted
-                setFormData({ name: "", email: "", message: "" }); // Clear form data
-            })
-            .catch((error) => {
-                console.error(error);
-                setError("There was an error submitting the form. Please try again.");
-                setIsSubmitted(false);
-            });
+        try {
+            await axios.post("https://formspree.io/f/xldekvpq", formData);
+            setStatus({ success: true, error: "" });
+            setFormData({ name: "", email: "", message: "" }); // Reset form
+        } catch (err) {
+            setStatus({ success: false, error: "Error submitting form. Try again." });
+        }
     };
 
     return (
         <div id="contact" className="contact-container">
+            {/* Left Side */}
             <div className="contact-left">
-                <h1 className="contact-title">Contact <span style={{color:"orange"}}>Me</span></h1>
+                <h1 className="contact-title">
+                    Contact <span className="highlight">Me</span>
+                </h1>
                 <p className="contact-description">
-                    If you have any questions or would like to get in touch, feel free to reach out to me.
+                    Have a question or want to work together? Reach out!
                 </p>
                 <div className="contact-icons">
                     <div className="contact-icon">
-                        <FaEnvelope style={{color:"orange"}}/>
-                        <span>Email : yassinechadani113@gmail.com</span>
+                        <FaEnvelope className="icon" />
+                        <a href="mailto:yassinechadani113@gmail.com">yassinechadani113@gmail.com</a>
                     </div>
                     <div className="contact-icon">
-                        <FaPhone style={{color:"orange"}}/>
-                        <span>Phone : +212 6 01 71 04 79</span>
+                        <FaPhone className="icon" />
+                        <a href="https://wa.me/212601710479" target="_blank" rel="noopener noreferrer">+212 6 01 71 04 79</a>
                     </div>
                     <div className="contact-icon">
-                        <FaMapMarkerAlt style={{color:"orange"}} />
-                        <span>Location : Rabat, Morocco</span>
+                        <FaMapMarkerAlt className="icon" />
+                        <span>Rabat, Morocco</span>
                     </div>
                 </div>
-                {/* Social Media Icons */}
+
+                {/* Social Media Links */}
                 <div className="social-icons">
-                        <a href="https://github.com/yassine14522" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <FaGithub size={30} style={{ color: 'orange', margin: '0 10px' }} />
-                        </a>
-                        <a href="https://www.linkedin.com/in/yassine-echadani-5904b8268" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <FaLinkedin size={30} style={{ color: 'orange', margin: '0 10px' }} />
-                        </a>
-                    </div>
+                    <a href="https://github.com/yassine14522" target="_blank" rel="noopener noreferrer">
+                        <FaGithub size={30} className="social-icon" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/yassine-echadani-5904b8268" target="_blank" rel="noopener noreferrer">
+                        <FaLinkedin size={30} className="social-icon" />
+                    </a>
+                </div>
             </div>
 
+            {/* Right Side - Contact Form */}
             <div className="contact-right">
                 <form className="contact-form" onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="message">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="submit-button">
-                       Contact Me
-                    </button>
+                    {["name", "email", "message"].map((field) => (
+                        <div key={field} className="form-group">
+                            <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+                            {field === "message" ? (
+                                <textarea id={field} name={field} value={formData[field]} onChange={handleInputChange} required />
+                            ) : (
+                                <input type={field === "email" ? "email" : "text"} id={field} name={field} value={formData[field]} onChange={handleInputChange} required />
+                            )}
+                        </div>
+                    ))}
+                    <button type="submit" className="submit-button">Send Message</button>
+                    {status.success && <p className="success">Message sent successfully!</p>}
+                    {status.error && <p className="error">{status.error}</p>}
                 </form>
-                {isSubmitted && <p>Message sent successfully!</p>}
-                {error && <p className="error">{error}</p>}
             </div>
         </div>
     );

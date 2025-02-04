@@ -28,27 +28,52 @@
 .contact-icons {
     display: flex;
     flex-direction: column;
-
+    gap: 15px;
 }
 
 .contact-icon {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    
+    font-size: 1rem;
 }
 
+.contact-icon .icon {
+    color: orange;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.contact-icon a,
 .contact-icon span {
-    margin-left: 10px;
-    
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-icon a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: orange;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
 }
 
 .contact-right {
     flex: 1;
     padding-left: 20px;
     border-left: 2px solid #ccc;
-    
+
 }
 
 .contact-form {
@@ -87,7 +112,7 @@
     width: 200px;
     transition: background-position 0.5s ease, transform 0.3s ease;
     animation: fadeIn 3s ease forwards;
-    
+
 
 }
 

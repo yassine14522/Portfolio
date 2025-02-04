@@ -5,57 +5,101 @@
   text-align: center;
 }
 
-
+/* Title Styling */
 .skills-title {
   font-size: 2.5rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 90px;
-  position: relative; /* Needed for the pseudo-element positioning */
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
 }
 
 .skills-title::after {
   content: '';
   display: block;
-  width: 50%; /* Adjust the width of the border */
-  height: 2px; /* Thickness of the border */
-  background-color: #f39c12; /* Color of the border */
-  margin: 10px auto 0; /* Space between text and border */
-  position: relative;
+  width: 60px; /* Line width */
+  height: 3px; /* Thickness */
+  background-color: #f39c12; /* Line color */
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
+/* Skill Sections */
+.skills-section {
+  margin-bottom: 40px;
+}
 
-.technical-skills {
+.skills-category {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Skills Grid */
+.skills-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
 }
 
+/* Individual Skill Box */
 .skill {
-  text-align: center;
-  width: 150px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  width: 140px;
+  height: 140px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill:hover {
-  transform: translateY(-25%); /* Move item up by 10% */
-  color: #333; /* Reset to normal color */
+  transform: translateY(-15px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Icons */
 .skill-icon {
-  font-size: 4rem; /* Increase icon size */
-  margin-bottom: 10px;
+  font-size: 3.5rem;
   color: #f39c12;
   transition: color 0.3s ease;
 }
 
 .skill:hover .skill-icon {
-  color: #f39c12; /* Reset to the official color on hover */
+  color: #d68910; /* Darker shade on hover */
 }
 
+/* Skill Name */
 .skill p {
   font-size: 1.2rem;
   color: #333;
-  margin: 0;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-list {
+    gap: 20px;
+  }
+
+  .skill {
+    width: 120px;
+    height: 120px;
+  }
+
+  .skill-icon {
+    font-size: 3rem;
+  }
+
+  .skill p {
+    font-size: 1rem;
+  }
 }

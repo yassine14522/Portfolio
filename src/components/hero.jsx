@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "../style/components/home.css";
+import "../style/components/hero.css";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Home() {

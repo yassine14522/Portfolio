@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react";
-import "../style/components/about.css"; // Make sure to create and import the CSS file
+import React, { useState } from "react";
+import "../style/components/about.css";
 import { FaLanguage } from 'react-icons/fa';
-
+import { Link } from "react-router-dom";
 
 
 export default function About() {
     const [isFrench, setIsFrench] = useState(false);
 
     const handleTranslate = () => {
-        setIsFrench(!isFrench); // Toggle between English and French
+        setIsFrench(!isFrench);
     };
 
     return (
@@ -27,7 +27,9 @@ export default function About() {
                         }
                         <FaLanguage className="language-icon" onClick={handleTranslate} />
                     </p>
-                    <button className="contact-button">Contact Me</button>
+                    <Link to={"/profile"}>
+                        <button className="contact-button">Go to profile</button>
+                    </Link>
                 </div>
             </section>
         </div>

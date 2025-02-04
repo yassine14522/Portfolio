@@ -1,9 +1,3 @@
-/* General Reset */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* Main Layout */
 .home-container {
@@ -11,9 +5,8 @@
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
-    margin: 100px;
-    max-width: 1600px;
-
+    margin: 100px auto;
+    max-width: 1250px;
 }
 
 .hero {
@@ -21,8 +14,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1300px;
-    gap: 250px;
+    max-width: 1250px;
+    gap: 40px;
 }
 
 .hero-text {
